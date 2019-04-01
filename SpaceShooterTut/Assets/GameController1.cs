@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class GameController1 : MonoBehaviour
 {
     public GameObject hazard;
@@ -35,7 +37,7 @@ public class GameController1 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(0);
             }
         }
     }

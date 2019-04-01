@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Boundary
@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float tilt;
     public Boundary boundary;
-    public AudioSource audio; 
+    public AudioSource audio;
 
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
 
-    private Rigidbody rigidbody;
+    Rigidbody rigidbody;
     private float nextFire;
 
     void Start()
@@ -36,6 +36,18 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             audio.Play();
         }
+        if (Input.GetKey("escape"))
+        {
+            ExitGame();
+        }
+
+    }
+
+    void ExitGame()
+    { 
+            Application.Quit();
+            Debug.Log("Left");
+        
     }
 
     void FixedUpdate()
